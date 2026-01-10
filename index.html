@@ -1,0 +1,1129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>WALSCOM TECNOLOGIES SERVICES LTD</title>
+
+  <!-- TAB ICON (fixes the grey “S”) -->
+  <link rel="icon" type="image/svg+xml"
+    href='data:image/svg+xml;utf8,
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+      <rect width="512" height="512" rx="110" fill="%23000000"/>
+      <rect x="70" y="70" width="372" height="372" rx="92" fill="none" stroke="%23007BFF" stroke-width="18"/>
+      <path d="M140 170 L190 345 L256 235 L322 345 L372 170"
+            fill="none" stroke="%23007BFF" stroke-width="42"
+            stroke-linecap="round" stroke-linejoin="round"/>
+      <g fill="%23007BFF">
+        <circle cx="140" cy="170" r="12"/>
+        <circle cx="256" cy="235" r="12"/>
+        <circle cx="372" cy="170" r="12"/>
+        <circle cx="190" cy="345" r="12"/>
+        <circle cx="322" cy="345" r="12"/>
+      </g>
+    </svg>'>
+
+  <meta name="theme-color" content="#000000">
+
+  <style>
+    :root{
+      --black:#000000;
+      --black2:#060912;
+      --black3:#0B1020;
+
+      --blue:#007BFF;
+      --blue2:#1E90FF;
+      --blue3:#39A7FF;
+
+      --text:#EAF2FF;
+      --muted:rgba(234,242,255,.82);
+      --line:rgba(234,242,255,.14);
+
+      --card:rgba(255,255,255,.05);
+      --card2:rgba(255,255,255,.08);
+
+      --shadow: 0 18px 55px rgba(0,0,0,.50);
+      --glow: 0 0 16px rgba(0,123,255,.32), 0 0 44px rgba(30,144,255,.18);
+
+      --radius: 18px;
+      --max: 1180px;
+    }
+
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      color:var(--text);
+      background:
+        radial-gradient(1000px 550px at 12% 12%, rgba(0,123,255,.18), transparent 56%),
+        radial-gradient(900px 550px at 88% 20%, rgba(30,144,255,.13), transparent 55%),
+        radial-gradient(900px 550px at 70% 92%, rgba(57,167,255,.09), transparent 60%),
+        linear-gradient(180deg, var(--black), var(--black2));
+      overflow-x:hidden;
+    }
+
+    a{color:inherit; text-decoration:none}
+    .wrap{max-width:var(--max); margin:0 auto; padding:0 18px}
+    .muted{color:var(--muted)}
+    .divider{height:1px;background:var(--line);margin:18px 0}
+
+    /* ===== Header / Nav ===== */
+    header{
+      position:sticky;
+      top:0;
+      z-index:100;
+      background: rgba(0,0,0,.78);
+      backdrop-filter: blur(10px);
+      border-bottom:1px solid var(--line);
+    }
+
+    .nav{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:14px;
+      padding:14px 0;
+    }
+
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:12px;
+      min-width: 280px;
+    }
+
+    .logoBox{
+      width:52px;height:52px;
+      flex:0 0 52px;
+      display:grid;
+      place-items:center;
+      border-radius:16px;
+      border:1px solid rgba(0,123,255,.65);
+      background: linear-gradient(180deg, rgba(255,255,255,.05), rgba(255,255,255,.02));
+      box-shadow: var(--shadow);
+    }
+    .logoBox svg{width:34px;height:34px;display:block}
+
+    .brandText b{
+      display:block;
+      font-size:13px;
+      letter-spacing:.9px;
+      text-transform:uppercase;
+      line-height:1.2;
+    }
+    .brandText span{
+      display:block;
+      font-size:11px;
+      opacity:.86;
+      margin-top:2px;
+      letter-spacing:.35px;
+    }
+
+    nav ul{
+      list-style:none;
+      display:flex;
+      gap:10px;
+      margin:0;
+      padding:0;
+      align-items:center;
+    }
+    nav a{
+      display:inline-block;
+      padding:10px 12px;
+      border-radius:14px;
+      border:1px solid transparent;
+      opacity:.92;
+      font-size:13px;
+      transition:.25s ease;
+    }
+    nav a:hover{
+      opacity:1;
+      border-color: rgba(234,242,255,.16);
+      background: rgba(255,255,255,.04);
+      box-shadow: var(--glow);
+    }
+
+    .navRight{
+      display:flex;
+      gap:10px;
+      align-items:center;
+    }
+
+    .btn{
+      border:1px solid rgba(234,242,255,.18);
+      background: rgba(255,255,255,.04);
+      color: var(--text);
+      padding:10px 14px;
+      border-radius:14px;
+      cursor:pointer;
+      font-weight:700;
+      letter-spacing:.2px;
+      transition:.25s ease;
+      white-space:nowrap;
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+    }
+    .btn:hover{transform:translateY(-1px); box-shadow:var(--glow)}
+    .btnPrimary{
+      border:none;
+      background: linear-gradient(135deg, var(--blue), var(--blue2));
+      color:#fff;
+    }
+    .btnGhost{
+      background: transparent;
+      border:1px solid rgba(0,123,255,.65);
+    }
+
+    .burger{
+      display:none;
+      width:46px;height:46px;
+      border-radius:14px;
+      border:1px solid rgba(234,242,255,.18);
+      background: rgba(255,255,255,.04);
+      color: var(--text);
+      cursor:pointer;
+    }
+
+    .mobilePanel{
+      display:none;
+      padding: 8px 0 16px;
+      border-top:1px solid var(--line);
+    }
+    .mobilePanel a{
+      display:block;
+      padding:12px 12px;
+      border-radius:14px;
+      border:1px solid rgba(234,242,255,.14);
+      background: rgba(255,255,255,.03);
+      margin-top:10px;
+      opacity:.95;
+    }
+    .mobilePanel a:hover{box-shadow:var(--glow)}
+    .mobilePanel.show{display:block}
+
+    /* ===== Hero ===== */
+    .hero{
+      padding:74px 0 34px;
+    }
+    .heroGrid{
+      display:grid;
+      grid-template-columns: 1.25fr .75fr;
+      gap:22px;
+      align-items:stretch;
+    }
+
+    .pill{
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      padding:8px 12px;
+      border-radius:999px;
+      border:1px solid rgba(234,242,255,.16);
+      background: rgba(255,255,255,.03);
+      font-size:12px;
+      opacity:.95;
+      width: fit-content;
+    }
+    .dot{
+      width:10px;height:10px;border-radius:50%;
+      background: var(--blue2);
+      box-shadow: var(--glow);
+    }
+
+    h1{
+      margin:14px 0 10px;
+      font-size:46px;
+      line-height:1.06;
+      letter-spacing:-.6px;
+    }
+    .accent{
+      color: var(--blue2);
+      text-shadow: 0 0 26px rgba(30,144,255,.22);
+    }
+    .lead{
+      margin:10px 0 18px;
+      line-height:1.7;
+      opacity:.92;
+      max-width: 64ch;
+      font-size:15px;
+    }
+
+    .heroBtns{
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+      margin-top:10px;
+    }
+    .btnBig{padding:12px 16px; border-radius:16px}
+
+    .heroCard{
+      background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.03));
+      border:1px solid rgba(234,242,255,.14);
+      border-radius: var(--radius);
+      padding:16px;
+      box-shadow: var(--shadow);
+      position:relative;
+      overflow:hidden;
+    }
+    .heroCard:before{
+      content:"";
+      position:absolute; inset:-2px;
+      background:
+        radial-gradient(420px 240px at 20% 0%, rgba(0,123,255,.14), transparent 60%),
+        radial-gradient(420px 240px at 90% 20%, rgba(30,144,255,.10), transparent 60%);
+      pointer-events:none;
+    }
+    .heroCard > *{position:relative}
+    .miniTitle{margin:0 0 6px; font-size:16px}
+    .miniText{margin:0; opacity:.9; line-height:1.6; font-size:13px}
+
+    .stats{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap:10px;
+      margin-top:12px;
+    }
+    .stat{
+      border:1px solid rgba(234,242,255,.12);
+      background: rgba(0,0,0,.22);
+      border-radius:16px;
+      padding:12px;
+    }
+    .stat b{display:block; font-size:18px}
+    .stat span{display:block; font-size:12px; opacity:.85; margin-top:2px}
+
+    /* ===== Sections ===== */
+    .section{
+      padding:78px 0;
+      border-top:1px solid var(--line);
+    }
+    .titleRow{
+      display:flex;
+      align-items:flex-end;
+      justify-content:space-between;
+      gap:16px;
+      margin-bottom:18px;
+    }
+    .titleRow h2{
+      margin:0;
+      font-size:26px;
+      letter-spacing:-.2px;
+    }
+    .titleRow p{
+      margin:0;
+      max-width: 74ch;
+      opacity:.9;
+      line-height:1.6;
+      font-size:13px;
+    }
+
+    .grid{display:grid; gap:16px}
+    .grid3{grid-template-columns: repeat(3, 1fr)}
+    .grid2{grid-template-columns: repeat(2, 1fr)}
+
+    .card{
+      background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.03));
+      border:1px solid rgba(234,242,255,.14);
+      border-radius: var(--radius);
+      padding:16px;
+      box-shadow: var(--shadow);
+      transition:.25s ease;
+      position:relative;
+      overflow:hidden;
+    }
+    .card:hover{
+      transform: translateY(-2px);
+      border-color: rgba(0,123,255,.35);
+      box-shadow: var(--shadow), var(--glow);
+      background: linear-gradient(180deg, rgba(255,255,255,.07), rgba(255,255,255,.04));
+    }
+    .icon{
+      width:44px;height:44px;
+      display:grid; place-items:center;
+      border-radius:16px;
+      border:1px solid rgba(0,123,255,.45);
+      background: rgba(0,123,255,.12);
+      margin-bottom:10px;
+      box-shadow: 0 10px 22px rgba(0,0,0,.35);
+      font-size:18px;
+    }
+    .card h3{margin:0 0 6px; font-size:16px; color: var(--blue2)}
+    .card p{margin:0; opacity:.92; line-height:1.6; font-size:13px}
+
+    /* Projects */
+    .tag{
+      font-size:11px;
+      padding:6px 10px;
+      border-radius:999px;
+      border:1px solid rgba(234,242,255,.16);
+      background: rgba(255,255,255,.03);
+      opacity:.95;
+      white-space:nowrap;
+    }
+    .projectTop{
+      display:flex;
+      align-items:flex-start;
+      justify-content:space-between;
+      gap:10px;
+      margin-bottom:8px;
+    }
+
+    /* Tabs (Services details) */
+    .tabs{
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+      margin:10px 0 0;
+    }
+    .tabBtn{
+      padding:10px 12px;
+      border-radius:14px;
+      border:1px solid rgba(234,242,255,.14);
+      background: rgba(255,255,255,.03);
+      color: var(--text);
+      cursor:pointer;
+      font-weight:700;
+      font-size:12px;
+      opacity:.92;
+      transition:.2s ease;
+    }
+    .tabBtn:hover{box-shadow:var(--glow)}
+    .tabBtn.active{
+      border-color: rgba(0,123,255,.55);
+      background: rgba(0,123,255,.12);
+      opacity:1;
+    }
+    .tabPanel{
+      display:none;
+      margin-top:14px;
+    }
+    .tabPanel.show{display:block}
+
+    /* Testimonials */
+    .quote{
+      font-size:13px;
+      line-height:1.7;
+      opacity:.92;
+    }
+    .who{
+      margin-top:10px;
+      font-size:12px;
+      opacity:.85;
+      display:flex;
+      gap:10px;
+      align-items:center;
+    }
+    .avatar{
+      width:34px;height:34px;
+      border-radius:12px;
+      background: rgba(0,123,255,.16);
+      border:1px solid rgba(0,123,255,.35);
+      display:grid;place-items:center;
+      font-weight:900;
+      color: var(--blue2);
+    }
+
+    /* FAQ */
+    .faqItem{
+      border:1px solid rgba(234,242,255,.14);
+      border-radius: var(--radius);
+      background: rgba(255,255,255,.03);
+      overflow:hidden;
+    }
+    .faqQ{
+      width:100%;
+      text-align:left;
+      background: transparent;
+      border:0;
+      color: var(--text);
+      padding:14px 16px;
+      cursor:pointer;
+      font-weight:800;
+      display:flex;
+      justify-content:space-between;
+      gap:10px;
+      align-items:center;
+      font-size:13px;
+    }
+    .faqQ:hover{box-shadow:var(--glow)}
+    .faqA{
+      display:none;
+      padding:0 16px 14px;
+      opacity:.9;
+      line-height:1.7;
+      font-size:13px;
+    }
+    .faqItem.open .faqA{display:block}
+
+    /* Contact */
+    form{display:grid; gap:12px}
+    .row2{display:grid; grid-template-columns: 1fr 1fr; gap:12px}
+    input, textarea{
+      width:100%;
+      padding:12px 12px;
+      border-radius:14px;
+      border:1px solid rgba(234,242,255,.18);
+      background: rgba(0,0,0,.28);
+      color: var(--text);
+      outline:none;
+      font-size:13px;
+    }
+    input:focus, textarea:focus{
+      border-color: rgba(0,123,255,.55);
+      box-shadow: var(--glow);
+    }
+    textarea{min-height:120px; resize:vertical}
+
+    /* Floating WhatsApp */
+    .waFloat{
+      position:fixed;
+      right:16px;
+      bottom:16px;
+      z-index:120;
+      display:flex;
+      gap:10px;
+      align-items:center;
+    }
+    .waBubble{
+      padding:10px 12px;
+      border-radius:14px;
+      border:1px solid rgba(234,242,255,.16);
+      background: rgba(0,0,0,.55);
+      backdrop-filter: blur(10px);
+      font-size:12px;
+      opacity:.92;
+      display:none;
+    }
+    .waBtn{
+      width:56px;height:56px;
+      border-radius:18px;
+      border:1px solid rgba(0,123,255,.55);
+      background: linear-gradient(135deg, rgba(0,123,255,.95), rgba(30,144,255,.95));
+      box-shadow: var(--shadow), var(--glow);
+      display:grid;place-items:center;
+      cursor:pointer;
+      text-decoration:none;
+      color:#fff;
+      font-weight:900;
+    }
+    .waBtn:active{transform:scale(.98)}
+
+    /* Footer */
+    footer{
+      border-top:1px solid var(--line);
+      padding:26px 0;
+      opacity:.9;
+      font-size:12px;
+    }
+    .footRow{
+      display:flex;
+      gap:12px;
+      justify-content:space-between;
+      align-items:center;
+      flex-wrap:wrap;
+    }
+    .smallLinks{display:flex; gap:10px; opacity:.9}
+    .smallLinks a{
+      padding:8px 10px;
+      border-radius:12px;
+      border:1px solid transparent;
+    }
+    .smallLinks a:hover{
+      border-color: rgba(234,242,255,.14);
+      background: rgba(255,255,255,.03);
+      box-shadow: var(--glow);
+    }
+
+    /* Responsive */
+    @media (max-width: 980px){
+      .heroGrid{grid-template-columns:1fr}
+      .grid3{grid-template-columns:1fr}
+      .grid2{grid-template-columns:1fr}
+      h1{font-size:38px}
+      .waBubble{display:block}
+    }
+    @media (max-width: 760px){
+      nav{display:none}
+      .navRight{display:none}
+      .burger{display:inline-grid; place-items:center}
+      .row2{grid-template-columns:1fr}
+      .waBubble{display:none}
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ===== HEADER ===== -->
+  <header>
+    <div class="wrap">
+      <div class="nav">
+        <a class="brand" href="#home" aria-label="Walscom Home">
+          <div class="logoBox" aria-hidden="true">
+            <!-- BLUE LOGO -->
+            <svg viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+              <rect x="70" y="70" width="372" height="372" rx="92"
+                    fill="none" stroke="#007BFF" stroke-width="18"/>
+              <path d="M140 170 L190 345 L256 235 L322 345 L372 170"
+                    fill="none" stroke="#007BFF" stroke-width="42"
+                    stroke-linecap="round" stroke-linejoin="round"/>
+              <g fill="#007BFF">
+                <circle cx="140" cy="170" r="12"/>
+                <circle cx="256" cy="235" r="12"/>
+                <circle cx="372" cy="170" r="12"/>
+                <circle cx="190" cy="345" r="12"/>
+                <circle cx="322" cy="345" r="12"/>
+              </g>
+            </svg>
+          </div>
+          <div class="brandText">
+            <b>WALSCOM TECHNOLOGIES SERVICES LTD</b>
+            <span>Securing Technologies, Building Business</span>
+          </div>
+        </a>
+
+        <nav aria-label="Primary">
+          <ul>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#process">Process</a></li>
+            <li><a href="#testimonials">Testimonials</a></li>
+            <li><a href="#faq">FAQ</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </nav>
+
+        <div class="navRight">
+          <!-- WhatsApp call/chat (same link opens WhatsApp; client can tap call inside WhatsApp) -->
+          <a class="btn btnGhost" href="https://wa.me/2348037945050" target="_blank" rel="noopener">WhatsApp Call</a>
+          <a class="btn btnPrimary" href="https://wa.me/2348037945050?text=Hello%20WALSCOM%20Technologies%20Services%20Ltd,%20I%20need%20your%20services."
+             target="_blank" rel="noopener">Chat on WhatsApp</a>
+        </div>
+
+        <button class="burger" id="burger" aria-label="Open menu">☰</button>
+      </div>
+
+      <div class="mobilePanel" id="mobilePanel">
+        <a href="#services">Services</a>
+        <a href="#projects">Projects</a>
+        <a href="#process">Process</a>
+        <a href="#testimonials">Testimonials</a>
+        <a href="#faq">FAQ</a>
+        <a href="#contact">Contact</a>
+        <a class="btn btnPrimary" style="display:block; text-align:center; margin-top:12px;"
+           href="https://wa.me/2348037945050?text=Hello%20WALSCOM%20Technologies%20Services%20Ltd,%20I%20need%20a%20quotation."
+           target="_blank" rel="noopener">Request Quote (WhatsApp)</a>
+        <a class="btn btnGhost" style="display:block; text-align:center; margin-top:10px;"
+           href="https://wa.me/2348037945050" target="_blank" rel="noopener">WhatsApp Call</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- ===== HERO ===== -->
+  <section class="hero" id="home">
+    <div class="wrap">
+      <div class="heroGrid">
+        <div>
+          <div class="pill"><span class="dot"></span> CCTV • Networking • Fiber Optics • Access Control • Solar Security</div>
+          <h1>Blue-black <span class="accent">security & connectivity</span> done properly.</h1>
+          <p class="lead">
+            WALSCOM Technologies Services Ltd designs and installs reliable surveillance, structured cabling,
+            network infrastructure, fiber backbone, and integrated security systems — built for uptime, clarity,
+            and future expansion.
+          </p>
+
+          <div class="heroBtns">
+            <a class="btn btnPrimary btnBig"
+               href="https://wa.me/2348037945050?text=Hello%20WALSCOM%20Technologies%20Services%20Ltd,%20I%20want%20a%20quotation%20for%20a%20project."
+               target="_blank" rel="noopener">Request a Quote</a>
+
+            <a class="btn btnGhost btnBig" href="#projects">View Projects</a>
+            <a class="btn btnBig" href="#services">Explore Services</a>
+          </div>
+
+          <p class="lead" style="margin-top:14px; font-size:12px; opacity:.86;">
+            Fast response • Professional installation • Documentation & support • Clean finishing
+          </p>
+        </div>
+
+        <aside class="heroCard">
+          <h3 class="miniTitle">What you get</h3>
+          <p class="miniText">Proper labeling, testing, and handover — so you’re not guessing later.</p>
+
+          <div class="stats">
+            <div class="stat"><b>24/7</b><span>System-ready design</span></div>
+            <div class="stat"><b>Clean</b><span>Cable management</span></div>
+            <div class="stat"><b>Secure</b><span>Network hardening</span></div>
+            <div class="stat"><b>Support</b><span>After-install help</span></div>
+          </div>
+
+          <div class="divider"></div>
+
+          <div class="miniText">
+            <b style="color:var(--blue2);">Quick Contact (WhatsApp)</b><br>
+            <span class="muted">08037945050</span>
+          </div>
+
+          <div style="margin-top:12px; display:flex; gap:10px; flex-wrap:wrap;">
+            <a class="btn btnPrimary" href="https://wa.me/2348037945050" target="_blank" rel="noopener">Open WhatsApp</a>
+            <a class="btn btnGhost"
+               href="https://wa.me/2348037945050?text=Hello%20WALSCOM,%20please%20send%20your%20price%20for%20CCTV%20installation."
+               target="_blank" rel="noopener">Quick Quote</a>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== SERVICES ===== -->
+  <section class="section" id="services">
+    <div class="wrap">
+      <div class="titleRow">
+        <div>
+          <h2>Services</h2>
+          <p>Security + network work done like engineering — not trial and error.</p>
+        </div>
+        <div class="muted" style="font-size:12px;">
+          WhatsApp: <b style="color:var(--blue2);">08037945050</b>
+        </div>
+      </div>
+
+      <div class="grid grid3">
+        <div class="card">
+          <div class="icon">📷</div>
+          <h3>CCTV Installation</h3>
+          <p>IP/Analog deployment, NVR/DVR configuration, remote viewing, storage planning, and testing.</p>
+        </div>
+
+        <div class="card">
+          <div class="icon">🌐</div>
+          <h3>Networking & VLAN</h3>
+          <p>Router/switch setup, VLAN segmentation, Wi-Fi planning, structured cabling, performance checks.</p>
+        </div>
+
+        <div class="card">
+          <div class="icon">🧵</div>
+          <h3>Fiber Optics</h3>
+          <p>Backbone design, splicing, termination, continuity testing, and documentation.</p>
+        </div>
+
+        <div class="card">
+          <div class="icon">🔐</div>
+          <h3>Access Control</h3>
+          <p>Biometrics, door locks, maglocks, intercom integration, visitor control workflows.</p>
+        </div>
+
+        <div class="card">
+          <div class="icon">⚡</div>
+          <h3>Solar Security</h3>
+          <p>Solar CCTV options, power sizing, battery backup, stable operation for remote sites.</p>
+        </div>
+
+        <div class="card">
+          <div class="icon">🧰</div>
+          <h3>Maintenance & Support</h3>
+          <p>Preventive maintenance, firmware hygiene, replacement planning, and fast fault response.</p>
+        </div>
+      </div>
+
+      <!-- Service Tabs (longer + interactive) -->
+      <div class="card" style="margin-top:16px;">
+        <div class="titleRow" style="margin-bottom:8px;">
+          <div>
+            <h2 style="font-size:18px; margin:0;">Service Details</h2>
+            <p style="margin:6px 0 0;">Tap a service to see what’s included and what we deliver.</p>
+          </div>
+        </div>
+
+        <div class="tabs" role="tablist" aria-label="Service tabs">
+          <button class="tabBtn active" data-tab="t1" type="button">CCTV</button>
+          <button class="tabBtn" data-tab="t2" type="button">Networking</button>
+          <button class="tabBtn" data-tab="t3" type="button">Fiber</button>
+          <button class="tabBtn" data-tab="t4" type="button">Access</button>
+        </div>
+
+        <div id="t1" class="tabPanel show">
+          <div class="grid grid2" style="margin-top:12px;">
+            <div class="card" style="box-shadow:none;">
+              <h3 style="margin:0 0 8px;">Included</h3>
+              <p>Camera placement planning, cable routing, NVR/DVR configuration, storage setup, remote viewing, and training.</p>
+            </div>
+            <div class="card" style="box-shadow:none;">
+              <h3 style="margin:0 0 8px;">Deliverables</h3>
+              <p>Clean finishing, labeled endpoints, working playback, and stable live view across key areas.</p>
+            </div>
+          </div>
+        </div>
+
+        <div id="t2" class="tabPanel">
+          <div class="grid grid2" style="margin-top:12px;">
+            <div class="card" style="box-shadow:none;">
+              <h3 style="margin:0 0 8px;">Included</h3>
+              <p>Router & switch configuration, VLAN design, Wi-Fi planning, LAN layout, and performance checks.</p>
+            </div>
+            <div class="card" style="box-shadow:none;">
+              <h3 style="margin:0 0 8px;">Deliverables</h3>
+              <p>Stable network, secure segmentation, device documentation, and sane remote management.</p>
+            </div>
+          </div>
+        </div>
+
+        <div id="t3" class="tabPanel">
+          <div class="grid grid2" style="margin-top:12px;">
+            <div class="card" style="box-shadow:none;">
+              <h3 style="margin:0 0 8px;">Included</h3>
+              <p>Backbone planning, splicing, termination, link testing, and proper enclosure/patch management.</p>
+            </div>
+            <div class="card" style="box-shadow:none;">
+              <h3 style="margin:0 0 8px;">Deliverables</h3>
+              <p>Reliable links, tidy fiber management, and documentation for future expansion.</p>
+            </div>
+          </div>
+        </div>
+
+        <div id="t4" class="tabPanel">
+          <div class="grid grid2" style="margin-top:12px;">
+            <div class="card" style="box-shadow:none;">
+              <h3 style="margin:0 0 8px;">Included</h3>
+              <p>Door locks, biometrics, maglocks, intercom integration, and access workflow setup.</p>
+            </div>
+            <div class="card" style="box-shadow:none;">
+              <h3 style="margin:0 0 8px;">Deliverables</h3>
+              <p>Secure entry control, staff onboarding, and stable operation with support options.</p>
+            </div>
+          </div>
+        </div>
+
+        <div style="margin-top:14px; display:flex; gap:10px; flex-wrap:wrap;">
+          <a class="btn btnPrimary"
+             href="https://wa.me/2348037945050?text=Hello%20WALSCOM,%20I%20need%20details%20about%20your%20services."
+             target="_blank" rel="noopener">Ask on WhatsApp</a>
+          <a class="btn btnGhost" href="#contact">Send Project Info</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== PROJECTS ===== -->
+  <section class="section" id="projects">
+    <div class="wrap">
+      <div class="titleRow">
+        <div>
+          <h2>Selected Projects</h2>
+          <p>Examples of deployments we handle — from small offices to large compounds.</p>
+        </div>
+      </div>
+
+      <div class="grid grid3">
+        <div class="card">
+          <div class="projectTop">
+            <h3 style="margin:0;">Compound CCTV</h3>
+            <span class="tag">16–32 cameras</span>
+          </div>
+          <p>Perimeter coverage, entry points, smart angles, labeled cable map, clean rack finishing.</p>
+        </div>
+
+        <div class="card">
+          <div class="projectTop">
+            <h3 style="margin:0;">School Campus</h3>
+            <span class="tag">Multi-building</span>
+          </div>
+          <p>Corridors, staircases, office areas, dining/kitchen — clear coverage and easy playback.</p>
+        </div>
+
+        <div class="card">
+          <div class="projectTop">
+            <h3 style="margin:0;">Fiber Backbone</h3>
+            <span class="tag">Core links</span>
+          </div>
+          <p>Trenching plan, splicing/termination, testing, and handover documentation.</p>
+        </div>
+
+        <div class="card">
+          <div class="projectTop">
+            <h3 style="margin:0;">Hospital Network</h3>
+            <span class="tag">High uptime</span>
+          </div>
+          <p>Network stability planning and segmentation for critical operations and device isolation.</p>
+        </div>
+
+        <div class="card">
+          <div class="projectTop">
+            <h3 style="margin:0;">Office Security</h3>
+            <span class="tag">Access control</span>
+          </div>
+          <p>Entry control setup, intercom integration, and safe visitor workflows.</p>
+        </div>
+
+        <div class="card">
+          <div class="projectTop">
+            <h3 style="margin:0;">Remote Solar CCTV</h3>
+            <span class="tag">Off-grid</span>
+          </div>
+          <p>Solar sizing and deployment for surveillance where grid power is unreliable.</p>
+        </div>
+      </div>
+
+      <div style="margin-top:16px; display:flex; gap:10px; flex-wrap:wrap;">
+        <a class="btn btnPrimary"
+           href="https://wa.me/2348037945050?text=Hello%20WALSCOM,%20I%20want%20to%20see%20more%20of%20your%20projects."
+           target="_blank" rel="noopener">Request More Project Samples</a>
+        <a class="btn btnGhost" href="#contact">Start a Project</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== PROCESS ===== -->
+  <section class="section" id="process">
+    <div class="wrap">
+      <div class="titleRow">
+        <div>
+          <h2>Our Process</h2>
+          <p>A simple workflow that reduces mistakes and makes handover smooth.</p>
+        </div>
+      </div>
+
+      <div class="grid grid3">
+        <div class="card">
+          <div class="icon">1</div>
+          <h3>Survey</h3>
+          <p>We check camera angles, cable routes, power points, distances, and network readiness.</p>
+        </div>
+        <div class="card">
+          <div class="icon">2</div>
+          <h3>Design & Quote</h3>
+          <p>We propose the right equipment and plan for performance, storage, and expansion.</p>
+        </div>
+        <div class="card">
+          <div class="icon">3</div>
+          <h3>Install & Test</h3>
+          <p>We install cleanly, label properly, test everything, and do a clear handover.</p>
+        </div>
+      </div>
+
+      <div class="card" style="margin-top:16px;">
+        <h3 style="margin:0 0 8px;">Before we start, we ask:</h3>
+        <p style="margin:0; opacity:.92; line-height:1.7;">
+          What must be covered? What’s the budget range? Do you need remote viewing? How long do you want storage?
+          Is the network stable? Do you need future expansion? These questions prevent “redo” work later.
+        </p>
+
+        <div style="margin-top:14px;">
+          <a class="btn btnPrimary"
+             href="https://wa.me/2348037945050?text=Hello%20WALSCOM,%20I%20want%20to%20book%20a%20site%20survey."
+             target="_blank" rel="noopener">Book a Survey (WhatsApp)</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== TESTIMONIALS ===== -->
+  <section class="section" id="testimonials">
+    <div class="wrap">
+      <div class="titleRow">
+        <div>
+          <h2>Testimonials</h2>
+          <p>Sample style testimonials.</p>
+        </div>
+      </div>
+
+      <div class="grid grid3">
+        <div class="card">
+          <div class="quote">“The finishing was clean and the remote viewing worked immediately. Very professional.”</div>
+          <div class="who"><div class="avatar">A</div> Facility Manager</div>
+        </div>
+        <div class="card">
+          <div class="quote">“They labeled the cables and explained everything. Maintenance became easy.”</div>
+          <div class="who"><div class="avatar">B</div> School Admin</div>
+        </div>
+        <div class="card">
+          <div class="quote">“Network became stable after VLAN setup. Cameras no longer affected Wi-Fi.”</div>
+          <div class="who"><div class="avatar">C</div> IT Support</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FAQ ===== -->
+  <section class="section" id="faq">
+    <div class="wrap">
+      <div class="titleRow">
+        <div>
+          <h2>FAQ</h2>
+          <p>Quick answers to the questions clients ask most often.</p>
+        </div>
+      </div>
+
+      <div class="grid grid2">
+        <div class="faqItem">
+          <button class="faqQ" type="button">Do you provide remote viewing? <span>+</span></button>
+          <div class="faqA">Yes. We configure secure remote access and confirm it works before handover.</div>
+        </div>
+
+        <div class="faqItem">
+          <button class="faqQ" type="button">Do you label and document cables? <span>+</span></button>
+          <div class="faqA">Yes. Labeling + mapping reduces troubleshooting time massively in the future.</div>
+        </div>
+
+        <div class="faqItem">
+          <button class="faqQ" type="button">Can CCTV run without internet? <span>+</span></button>
+          <div class="faqA">Yes. Recording works locally. Internet is only needed for remote viewing.</div>
+        </div>
+
+        <div class="faqItem">
+          <button class="faqQ" type="button">Do you offer maintenance? <span>+</span></button>
+          <div class="faqA">Yes. Preventive maintenance helps avoid sudden failures and keeps recordings reliable.</div>
+        </div>
+      </div>
+
+      <div style="margin-top:16px;">
+        <a class="btn btnPrimary"
+           href="https://wa.me/2348037945050?text=Hello%20WALSCOM,%20I%20have%20a%20question%20about%20your%20services."
+           target="_blank" rel="noopener">Ask a Question on WhatsApp</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CONTACT ===== -->
+  <section class="section" id="contact">
+    <div class="wrap">
+      <div class="titleRow">
+        <div>
+          <h2>Contact</h2>
+          <p>Send your project details .</p>
+        </div>
+      </div>
+
+      <div class="grid grid2">
+        <div class="card">
+          <h3 style="margin:0 0 10px;">Send Project Info</h3>
+
+          <form id="waForm">
+            <div class="row2">
+              <input type="text" id="name" placeholder="Your Name" required>
+              <input type="tel" id="phone" placeholder="Your Phone Number" required>
+            </div>
+            <input type="text" id="location" placeholder="Location (City/Area)" required>
+            <textarea id="message" placeholder="Describe what you need (CCTV, Fiber, Network, Access Control...)" required></textarea>
+            <button class="btn btnPrimary" type="submit">Open WhatsApp Message</button>
+
+          </form>
+        </div>
+
+        <div class="card">
+          <h3 style="margin:0 0 10px;">Business Details</h3>
+          <p style="opacity:.92; line-height:1.7; margin-top:0;">
+            <b>WALSCOM TECHNOLOGIES SERVICES LTD</b><br>
+            Security • CCTV • Networking • Fiber Optics • Access Control
+          </p>
+
+          <div class="divider"></div>
+
+          <p style="margin:0; opacity:.92; line-height:1.7;">
+            <b style="color:var(--blue2);">WhatsApp:</b> 08037945050
+          </p>
+
+          <div style="margin-top:14px; display:flex; gap:10px; flex-wrap:wrap;">
+            <a class="btn btnPrimary" href="https://wa.me/2348037945050" target="_blank" rel="noopener">Chat on WhatsApp</a>
+            <a class="btn btnGhost"
+               href="https://wa.me/2348037945050?text=Hello%20WALSCOM,%20I%20want%20a%20quotation."
+               target="_blank" rel="noopener">Request Quote</a>
+            <a class="btn" href="#home">Back to top ↑</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer>
+    <div class="wrap">
+      <div class="footRow">
+        <div>© <span id="yr"></span> WALSCOM TECHNOLOGIES SERVICES LTD</div>
+        <div class="smallLinks">
+          <a href="https://wa.me/2348037945050" target="_blank" rel="noopener">WhatsApp: 08037945050</a>
+          <a href="#services">Services</a>
+          <a href="#projects">Projects</a>
+          <a href="#contact">Contact</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Floating WhatsApp button -->
+  <div class="waFloat" aria-label="WhatsApp contact">
+    <div class="waBubble">Chat on WhatsApp</div>
+    <a class="waBtn" href="https://wa.me/2348037945050" target="_blank" rel="noopener" aria-label="Open WhatsApp">
+      WA
+    </a>
+  </div>
+
+  <script>
+    // Year
+    document.getElementById("yr").textContent = new Date().getFullYear();
+
+    // Mobile menu
+    const burger = document.getElementById("burger");
+    const panel = document.getElementById("mobilePanel");
+    burger.addEventListener("click", () => {
+      panel.classList.toggle("show");
+      burger.textContent = panel.classList.contains("show") ? "✕" : "☰";
+    });
+    panel.querySelectorAll("a").forEach(a => {
+      a.addEventListener("click", () => {
+        panel.classList.remove("show");
+        burger.textContent = "☰";
+      });
+    });
+
+    // Tabs
+    const tabBtns = document.querySelectorAll(".tabBtn");
+    const panels = document.querySelectorAll(".tabPanel");
+    tabBtns.forEach(btn => {
+      btn.addEventListener("click", () => {
+        tabBtns.forEach(b => b.classList.remove("active"));
+        panels.forEach(p => p.classList.remove("show"));
+        btn.classList.add("active");
+        document.getElementById(btn.dataset.tab).classList.add("show");
+      });
+    });
+
+    // FAQ accordion
+    document.querySelectorAll(".faqItem").forEach(item => {
+      const q = item.querySelector(".faqQ");
+      q.addEventListener("click", () => {
+        const isOpen = item.classList.contains("open");
+        document.querySelectorAll(".faqItem").forEach(i => i.classList.remove("open"));
+        item.classList.toggle("open", !isOpen);
+        // toggle symbol
+        document.querySelectorAll(".faqQ span").forEach(s => s.textContent = "+");
+        q.querySelector("span").textContent = item.classList.contains("open") ? "–" : "+";
+      });
+    });
+
+    // WhatsApp form -> opens wa.me with prefilled message
+    const form = document.getElementById("waForm");
+    form.addEventListener("submit", (e) => {
+      e.preventDefault();
+
+      const name = document.getElementById("name").value.trim();
+      const phone = document.getElementById("phone").value.trim();
+      const location = document.getElementById("location").value.trim();
+      const message = document.getElementById("message").value.trim();
+
+      const text =
+        `Hello WALSCOM Technologies Services Ltd,%0A%0A` +
+        `My Name: ${encodeURIComponent(name)}%0A` +
+        `My Phone: ${encodeURIComponent(phone)}%0A` +
+        `Location: ${encodeURIComponent(location)}%0A%0A` +
+        `Request:%0A${encodeURIComponent(message)}%0A%0A` +
+        `Please send me a quotation and next steps.`;
+
+      window.open(`https://wa.me/2348037945050?text=${text}`, "_blank", "noopener");
+    });
+  </script>
+
+</body>
+</html>
